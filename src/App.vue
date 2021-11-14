@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ 'is-dark': mode === 'dark' }">
     <nav-bar></nav-bar>
     <div class="main-wrapper">
       <router-view />
@@ -29,63 +29,50 @@ export default {
   components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal },
   computed: {
     ...mapGetters('app', ['newContentAvailable']),
-    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
+    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp', 'mode'])
   },
   methods: mapActions('app', [
     'closeAddToHomeScreenModalForApple',
-    'serviceWorkerSkipWaiting'
-  ])
+    'serviceWorkerSkipWaiting',
+    'fetchData'
+  ]),
+  mounted() {
+    this.fetchData()
+  }
 }
 </script>
 
 <style lang="scss">
-body {
-  margin: 0;
+@import '@/theme/app';
 
-  a {
-    font-weight: 500;
-    text-decoration: none;
+#app {
+  width: 100%;
+  background: $light;
+
+  &.is-dark {
+    background: $midnight;
   }
 
-  #app {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 16px;
-    color: #2c3e50;
+  .new-content-available-toastr {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
 
-    .new-content-available-toastr {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-    }
+  .apple-add-to-home-screen-modal {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    z-index: 1000;
+  }
 
-    .apple-add-to-home-screen-modal {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      top: 0;
-      left: 0;
-      height: fit-content;
-      width: fit-content;
-      margin: auto;
-      z-index: 1000;
-    }
-
-    .main-wrapper {
-      margin-top: 3.6rem;
-      padding: 20px;
-
-      .page-wrapper {
-        width: 60%;
-        margin: auto;
-
-        @media screen and (max-width: 1000px) {
-          width: 100%;
-        }
-      }
-    }
+  .main-wrapper {
+    width: 100%;
   }
 }
 </style>
