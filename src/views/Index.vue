@@ -127,9 +127,9 @@ export default {
       this.params.nbJobsToShow = this.nbJobsToShow
     },
     handleDevice() {
-      if (window.innerWidth <= 425) {
+      if (window.innerWidth <= 699) {
         this.device = 'mobile'
-      } else if (window.innerWidth <= 768) {
+      } else if (window.innerWidth <= 1024) {
         this.device = 'tablet'
       } else {
         this.device = 'desktop'
@@ -163,15 +163,19 @@ export default {
   height: 100%;
   padding: 80px 165px 104px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 85px 40px 60px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 699px) {
     padding: 85px 24px 62px;
   }
 
   &.is-dark {
+    .tools-container {
+      overflow: hidden;
+    }
+
     .tool-filter,
     .jobs-listing .job-item {
       background: $darkBlue;
@@ -222,17 +226,16 @@ export default {
     width: calc(100% / 3);
     padding: 16px 16px 16px 32px;
     border-right: 1px solid rgba($darkGrey, .2);
-    padding: 28px 32px;
 
     &:last-of-type {
       border-right: 0;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       padding: 16px 16px 16px 24px;
     }
 
-    @media (max-width: 425px) {
+    @media (max-width: 699px) {
       border-right: 0;
       width: auto;
     }
@@ -334,7 +337,7 @@ export default {
     grid-row-gap: 40px;
     margin-top: 105px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       grid-template-columns: 1fr 1fr;
       margin-top: 70px;
     }
@@ -455,7 +458,7 @@ export default {
       background: $lightViolet;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       padding: 16px;
     }
 
@@ -463,11 +466,11 @@ export default {
       display: block;
       margin: 56px auto 0;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         padding: 16px 30px;
       }
 
-      @media (max-width: 425px) {
+      @media (max-width: 699px) {
         margin: 32px auto 0;
       }
     }

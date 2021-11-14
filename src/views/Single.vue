@@ -95,7 +95,7 @@ export default {
   margin: 0 auto;
   padding: 80px 0 176px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: auto;
     padding: 85px 40px 149px;
   }
@@ -151,16 +151,16 @@ export default {
   }
 
   .floating-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     max-width: 730px;
     margin: 0 auto;
     padding-top: 23px;
     padding-bottom: 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       width: auto;
       padding: 23px 40px 22px;
 
@@ -190,7 +190,6 @@ export default {
     align-items: stretch;
     width: 100%;
     margin-top: -120px;
-    padding: 0 0 32px;
     border-radius: 6px;
     background: $white;
 
@@ -200,6 +199,7 @@ export default {
       align-items: center;
       justify-content: center;
       margin-top: -100px;
+      padding: 0 0 32px;
     }
   }
 
@@ -213,7 +213,6 @@ export default {
       justify-content: center;
       width: 140px;
       height: 140px;
-      margin-top: -25px;
 
       .logo {
         width: 80px;
@@ -222,6 +221,7 @@ export default {
       @media (max-width: 425px) {
         width: 50px;
         height: 50px;
+        margin-top: -25px;
 
         .logo {
           width: auto;
@@ -403,7 +403,7 @@ export default {
       background: $lightViolet;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       padding: 16px;
     }
 

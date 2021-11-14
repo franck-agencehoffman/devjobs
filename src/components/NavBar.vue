@@ -52,7 +52,7 @@ export default {
   background-position: top;
   background-size: cover;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 42px 40px 86px;
   }
 
